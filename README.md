@@ -22,7 +22,7 @@ The information will flow through the program as part of code analysis process.
 A local variable that contains the result of a method with contract “ensures” would inherit that information.
 
 This can be expanded to target other elements in code, like fields and generic parameters.
-### Questions
+
 ### With existing code
 
 How would this feature play nice with existing code that is not annotated with the contracts?

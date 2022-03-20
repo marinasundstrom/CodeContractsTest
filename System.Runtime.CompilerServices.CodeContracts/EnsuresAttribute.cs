@@ -1,6 +1,6 @@
 ﻿namespace System.Runtime.CompilerServices;
 
-[AttributeUsage(AttributeTargets.ReturnValue, AllowMultiple = true)]
+[AttributeUsage(AttributeTargets.ReturnValue | AttributeTargets.Field, AllowMultiple = true)]
 public class EnsuresAttribute : Attribute
 {
     public EnsuresAttribute(string condition)
