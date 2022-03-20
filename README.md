@@ -4,12 +4,40 @@ A set of attributes that enable compile-time code contracts with preconditions a
 
 They are meant to be analyzed at compile-time or as part of the development experience in an IDE.
 
+The approach is similar to that of Nullable Reference Types.
+
 Analyzer not produced as of yet.
 
+Sample and language syntax proposal below.
+
 ## Attributes
+
 * **RequiresAttribute** - Represents a precondition applied to a method parameter or property setter.
 * **EnsuresAttribute** - Represents a postcondition applied to the return value of a method or a property getter.
 * **ThrowsAttribute** - Indicates that the method may throw one or more specific exceptions.
+
+## Details
+The information will flow through the program as part of code analysis process.
+
+A local variable that contains the result of a method with contract “ensures” would inherit that information.
+
+This can be expanded to target other elements in code, like fields and generic parameters.
+### Questions
+### With existing code
+
+How would this feature play nice with existing code that is not annotated with the contracts?
+### Nullable Reference Types
+
+Don’t forget that we have to take into account that we have Nullable Reference Types that can be turned on and off.
+
+Another special case is extension methods.
+### Base Class Library
+
+I this were to be adopted, we would have to annotate the whole Base Class Library, just like with Nullable Reference Types.
+
+### Publishing code
+
+The attributes are only applicable when developing. When building an app in Release configuration, the attributes would just be removed.
 
 ## Sample
 From ContractsTest project:
@@ -43,6 +71,8 @@ void Foo([Requires("< 0")] int input)
 
 ## C# Language Syntax Proposal
 
+Based on [Spec#]():
+
 ```c#
 int DoSomething(int arg)
     requires arg >= 0
@@ -62,4 +92,4 @@ void Foo(int input)
 {
 
 }
-``
+```
