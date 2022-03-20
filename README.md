@@ -1,6 +1,6 @@
 ﻿# Code Contracts (Experiment)
 
-A set of attributes that enable compile-time code contracts with preconditions and postconditions to methods and properties.
+A set of attributes that enable compile-time code contracts with requirements and conditions to methods and properties.
 
 They are meant to be analyzed at compile-time or as part of the development experience in an IDE.
 
@@ -12,9 +12,9 @@ Sample and language syntax proposal below.
 
 ## Attributes
 
-* **RequiresAttribute** - Represents a precondition applied to a method parameter or property setter.
-* **EnsuresAttribute** - Represents a postcondition applied to the return value of a method or a property getter.
-* **ThrowsAttribute** - Indicates that the method may throw one or more specific exceptions.
+* **RequiresAttribute** - Represents a requirement that is applied to a method parameter or property setter.
+* **EnsuresAttribute** - Represents a condition that is applied to the return value of a method, a property getter, or a field.
+* **ThrowsAttribute** - Indicates that the method or property accessor may throw one or more specific exceptions.
 
 ## Details
 The information will flow through the program as part of code analysis process.
