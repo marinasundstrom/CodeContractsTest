@@ -8,8 +8,8 @@ var result = DoSomething(42);
 Foo(result);
 
 [Throws(typeof(InvalidOperationException))]
-[return: Ensures("> 0")]
-int DoSomething([Requires(">= 0"), Requires("< 42")]  int arg)
+[return: Ensures("return > 0")]
+int DoSomething([Requires("arg >= 0"), Requires("arg < 42")] int arg)
 {
     if(arg == 10)
     {
@@ -18,7 +18,23 @@ int DoSomething([Requires(">= 0"), Requires("< 42")]  int arg)
     return arg;
 }
 
-void Foo([Requires("< 0")] int input)
+void Foo([Requires("{input} < 0")] int input)
 {
 
+}
+
+void Print([Requires("{input}.Length > 0"), Requires("{input}.Length < 50")] string input) 
+//  requires input.Length > 0
+//  requires input.Length < 50
+{
+    Console.WriteLine(input);
+}
+
+class File 
+{
+    public string FileName 
+    {
+        [return: Ensures("return.Length =< 50")]
+        get;
+    } = null!;
 }

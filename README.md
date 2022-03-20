@@ -55,8 +55,8 @@ Foo(result);
     ~~~~~~
 
 [Throws(typeof(InvalidOperationException))]
-[return: Ensures("> 0")]
-int DoSomething([Requires(">= 0"), Requires("< 42")]  int arg)
+[return: Ensures("return > 0")]
+int DoSomething([Requires("arg >= 0"), Requires("arg < 42")] int arg)
 {
     if(arg == 10)
     {
@@ -65,7 +65,7 @@ int DoSomething([Requires(">= 0"), Requires("< 42")]  int arg)
     return arg;
 }
 
-void Foo([Requires("< 0")] int input)
+void Foo([Requires("{input} < 0")] int input)
 {
 
 }
