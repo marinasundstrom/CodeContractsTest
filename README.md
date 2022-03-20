@@ -46,11 +46,13 @@ From ContractsTest project:
 // CS1234: Argument does not satisfy requirement: arg < 42
 // CS1235: InvalidOperationException is unchecked.
 var result = DoSomething(42);
+                         ~~
 
 // "result" is marked as satisfying > 0
 
 // CS1234: Argument does not satisfy requirement: input < 0
 Foo(result);
+    ~~~~~~
 
 [Throws(typeof(InvalidOperationException))]
 [return: Ensures("> 0")]
