@@ -65,7 +65,7 @@ int DoSomething([Requires("arg >= 0"), Requires("arg < 42")] int arg)
     return arg;
 }
 
-void Foo([Requires("{input} < 0")] int input)
+void Foo([Requires("input < 0")] int input)
 {
 
 }

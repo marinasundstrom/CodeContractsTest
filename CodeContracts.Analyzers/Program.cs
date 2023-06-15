@@ -7,6 +7,16 @@ var programText = await File.ReadAllTextAsync("../../../../ContractsTest/Program
 SyntaxTree tree = CSharpSyntaxTree.ParseText(programText);
 CompilationUnitSyntax root = tree.GetCompilationUnitRoot();
 
+var statements = root
+    .DescendantNodes()
+    .OfType<LocalDeclarationStatementSyntax>();
+
+foreach(var statement in statements)
+{
+    var variableDeclaration = statement.Declaration;
+}
+
+    /*
 foreach (var member in root.Members)
 {
     var globalMember = member as GlobalStatementSyntax;
@@ -26,5 +36,6 @@ foreach (var member in root.Members)
         }
     }
 }
+    */
 
 Console.WriteLine(root);

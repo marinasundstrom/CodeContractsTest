@@ -18,12 +18,12 @@ int DoSomething([Requires("arg >= 0"), Requires("arg < 42")] int arg)
     return arg;
 }
 
-void Foo([Requires("{input} < 0")] int input)
+void Foo([Requires("input < 0")] int input)
 {
 
 }
 
-void Print([Requires("{input}.Length > 0"), Requires("{input}.Length < 50")] string input) 
+void Print([Requires("input.Length > 0"), Requires("input.Length < 50")] string input) 
 //  requires input.Length > 0
 //  requires input.Length < 50
 {
